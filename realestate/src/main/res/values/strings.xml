@@ -5,4 +5,18 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <!--Navigation-->
+    <string name="home_en">Home</string>
+    <string name="favorite_en">Favorites</string>
+    <string name="notification_en">Notification</string>
+    <string name="about_en">About Us</string>
+    <string name="user_name_en">User Name</string>
+
+    <string name="home_ar">الصفحة الرئيسية</string>
+    <string name="favorite_ar">المفضلة</string>
+    <string name="notification_ar">الاشعارات</string>
+    <string name="about_ar">حول التطبيق</string>
+    <string name="user_name_ar">اسم المستخدم</string>
+
 </resources>
