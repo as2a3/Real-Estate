@@ -1,6 +1,7 @@
 package com.trioplus.realestate;
 
 import android.app.Application;
+import android.content.Context;
 
 /**
  * Created by Ahmed on 11/22/2015.
@@ -8,10 +9,17 @@ import android.app.Application;
 public class RealStateApplication extends Application{
 
     public static final String LOG_TAG = "RealEstate";
-    public static final String API_URL = "http://192.168.88.14";
+
+    private static Context context;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        context = getApplicationContext();
     }
+
+    public static Context getContext() {
+        return context;
+    }
+
 }
