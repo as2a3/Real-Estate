@@ -1,22 +1,22 @@
 package com.trioplus.realestate.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.ContentLoadingProgressBar;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.ContentLoadingProgressBar;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.trioplus.realestate.R;
 import com.trioplus.realestate.fragment.HomeFragment;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        addHeaderFunctions();
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setProgressViewOffset(false, 0, 200);
         swipeRefreshLayout.setEnabled(false);
@@ -59,6 +59,22 @@ public class MainActivity extends AppCompatActivity
 
         addFragment(new HomeFragment(), false, null);
     }
+
+    //Hazem action to header 20151126
+    public void addHeaderFunctions() {
+
+        navigationView.getHeaderView(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        View header = navigationView.getHeaderView(0);
+        TextView text = (TextView) header.findViewById(R.id.userNameTextView);
+        text.setText("HELLO");
+    }
+
 
     public void addFragment(Fragment fragment, boolean addToBackStack, String tag) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -126,10 +142,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     public SwipeRefreshLayout getSwipeRefreshLayout() {
-        return  swipeRefreshLayout;
+        return swipeRefreshLayout;
     }
 
     public Toolbar getToolbar() {
-        return  toolbar;
+        return toolbar;
     }
 }
